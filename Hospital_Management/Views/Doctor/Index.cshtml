@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Doctor>
+
+<a asp-controller="Doctor" asp-action="Create" class="btn btn-outline-primary">Add Doctor</a>
+
+<table class="table table-border table-striped" style="width:100%;">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+               Phone_NO 
+            </th>
+            <th>
+                Specialist
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            foreach (var i in Model)
+            {
+                <tr>
+                    <td style="color:black;margin:20px;">
+                        @i.ID
+                    </td>
+                    <td style="color:black;margin:20px;">
+                        @i.Name
+                    </td>
+                    <td style="color:black;margin:20px;">
+                        @i.Phn_Number
+                    </td>
+                    <td style="color:black;margin:20px;">
+                        @i.Specialist
+                    </td>
+                    <td> 
+                        <div class="w-75 btn-group"role="group">
+                        <a asp-controller="Doctor" asp-action="Edit" asp-route-id="@i.ID" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                        </div>
+                    </td>
+                    <td>
+                            <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Doctor" asp-action="Delete" asp-route-id="@i.ID" class="btn btn-danger mx-2"> <i class="bi bi-trash"></i> Delete</a>
+                            </div>
+                        </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
+
+

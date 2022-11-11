@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model MedicalReport
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pd-2">
+			<h2 class="text-primary">Add Patient Medical Report</h2>
+		</div>
+		<hr />
+		<div asp-validation-summary="All"></div>
+		<div class="mb-3">
+			<label asp-for="PatientProblem"></label>
+			<input asp-for="PatientProblem" class="form-control" />
+			<span asp-validation-for="PatientProblem" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="MedicalTest"></label>
+			<input asp-for="MedicalTest" class="form-control" />
+			<span asp-validation-for="MedicalTest" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="MedicalResult"></label>
+			<input asp-for="MedicalResult" class="form-control" />
+			<span asp-validation-for="MedicalResult" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="PatientId"></label>
+			<input asp-for="PatientId" class="form-control" />
+			<span asp-validation-for="PatientId" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<input asp-for="date" type="date" asp-format="{0:yyyy-MM-dd}" class="form-control" />
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px;">
+			Create
+		</button>
+		<a asp-controller="MedicalReport" asp-action="Index" class="btn btn-secondary" style="width:150px;">
+			Back
+		</a>
+	</div>
+</form>
+

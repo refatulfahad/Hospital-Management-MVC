@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Patient>
+
+<a asp-controller="Patient" asp-action="Create" class="btn btn-outline-primary">Add Patient</a>
+
+@{
+
+   //<h3>@Model.patient.Name</h3>
+    //foreach (var item in Model)
+    //{
+    //    <h3>@item.Name</h3>
+    //}
+}
+<table class="table table-border table-striped" style="width:100%;">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th >
+                Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th >
+                Age
+            </th>
+            <th>
+                Phn_Number
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            foreach (var i in Model)
+            {
+                <tr>
+                    <td style="color:black;margin:20px;">
+                        @i.Id
+                    </td>
+                    <td style="color:black;margin:20px;">
+                        @i.Name
+                    </td>
+                    <td style="color:black;margin:20px;">
+                        @i.Gender
+                    </td>
+                    <td style="color:black;margin:20px;">
+                        @i.Age
+                    </td>
+                    <td style="color:black;margin:20px;">
+                        @i.Phn_Number
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Patient" asp-action="Details" asp-route-id="@i.Id" class="btn btn-primary mx-2"> Details</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Patient" asp-action="Edit" asp-route-id="@i.Id" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i> Edit</a>
+                        </div>
+                    </td>
+  
+                </tr>
+            }
+        }
+    </tbody>
+</table>
